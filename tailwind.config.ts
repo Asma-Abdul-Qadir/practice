@@ -1,4 +1,8 @@
+import { Poppins, Inter } from "next/font/google";
 import type { Config } from "tailwindcss";
+
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
+const inter = Inter({ subsets: ["latin"] });
 
 const config: Config = {
   content: [
@@ -8,6 +12,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      letterSpacing: {
+        "3pct": "0.03em", // Adjusted for Tailwind compatibility
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -16,4 +27,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
